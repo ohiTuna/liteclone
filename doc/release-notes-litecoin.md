@@ -148,7 +148,7 @@ Litecoin Core 0.15.0 contains the following changes to the RPC interface and `li
 
 * When running Litecoin Core with a single wallet, there are **no** changes to the RPC interface or `litecoin-cli`. All RPC calls and `litecoin-cli` commands continue to work as before.
 * When running Litecoin Core with multi-wallet, all *node-level* RPC methods continue to work as before. HTTP RPC requests should be send to the normal `<RPC IP address>:<RPC port>/` endpoint, and `litecoin-cli` commands should be run as before. A *node-level* RPC method is any method which does not require access to the wallet.
-* When running Litecoin Core with multi-wallet, *wallet-level* RPC methods must specify the wallet for which they're intended in every request. HTTP RPC requests should be send to the `<RPC IP address>:<RPC port>/wallet/<wallet name>/` endpoint, for example `127.0.0.1:9332/wallet/wallet1.dat/`. `litecoin-cli` commands should be run with a `-rpcwallet` option, for example `litecoin-cli -rpcwallet=wallet1.dat getbalance`.
+* When running Litecoin Core with multi-wallet, *wallet-level* RPC methods must specify the wallet for which they're intended in every request. HTTP RPC requests should be send to the `<RPC IP address>:<RPC port>/wallet/<wallet name>/` endpoint, for example `127.0.0.1:7572/wallet/wallet1.dat/`. `litecoin-cli` commands should be run with a `-rpcwallet` option, for example `litecoin-cli -rpcwallet=wallet1.dat getbalance`.
 * A new *node-level* `listwallets` RPC method is added to display which wallets are currently loaded. The names returned by this method are the same as those used in the HTTP endpoint and for the `rpcwallet` argument.
 
 Note that while multi-wallet is now fully supported, the RPC multi-wallet interface should be considered unstable for version 0.15.0, and there may backwards-incompatible changes in future versions.
@@ -487,7 +487,7 @@ Low-level RPC changes
 ### Wallet
 - #9359 `f7ec7cf` Add test for CWalletTx::GetImmatureCredit() returning stale values (ryanofsky)
 - #9576 `56ab672` [wallet] Remove redundant initialization (practicalswift)
-- #9333 `fa625b0` Document CWalletTx::mapValue entries and remove erase of nonexistent "version" entry (ryanofsky)
+- #7571 `fa625b0` Document CWalletTx::mapValue entries and remove erase of nonexistent "version" entry (ryanofsky)
 - #9906 `72fb515` Disallow copy constructor CReserveKeys (instagibbs)
 - #9369 `3178b2c` Factor out CWallet::nTimeSmart computation into a method (ryanofsky)
 - #9830 `afcd7c0` Add safe flag to listunspent result (NicolasDorier)
@@ -649,7 +649,7 @@ Low-level RPC changes
 - #10893 `0c173a1` [QA] Avoid running multiwallet.py twice (jonasschnelli)
 - #10927 `9d5e8f9` test: Make sure wallet.backup is created in temp path (laanwj)
 - #10899 `f29d5db` [test] Qt: Use _putenv_s instead of setenv on Windows builds (brianmcmichael)
-- #10912 `5c8eb79` [tests] Fix incorrect memory_cleanse(…) call in crypto_tests.cpp (practicalswift)
+- #10912 `5c8eb79` [tests] Fix incorrect memory_cleanse(???) call in crypto_tests.cpp (practicalswift)
 - #11001 `fa8a063` [tests] Test disconnecting unsupported service bits logic (jnewbery)
 - #10695 `929fd72` [qa] Rewrite BIP65/BIP66 functional tests (sdaftuar)
 - #10963 `ecd2135` [bench] Restore format state of cout after printing with std::fixed/setprecision (practicalswift)
@@ -728,7 +728,7 @@ Low-level RPC changes
 - #10651 `cef4b5c` Verify binaries from bitcoincore.org and bitcoin.org (TheBlueMatt)
 - #10786 `ca4c545` Add PR description to merge commit in github-merge.py (sipa)
 - #10812 `c5904e8` [utils] Allow bitcoin-cli's -rpcconnect option to be used with square brackets (jnewbery)
-- #10842 `3895e25` Fix incorrect Doxygen tag (@ince → @since). Doxygen parameter name matching (practicalswift)
+- #10842 `3895e25` Fix incorrect Doxygen tag (@ince ??? @since). Doxygen parameter name matching (practicalswift)
 - #10681 `df0793f` add gdb attach process to test README (instagibbs)
 - #10789 `1124328` Punctuation/grammer fixes in rpcwallet.cpp (stevendlander)
 - #10655 `78f307b` Properly document target_confirmations in listsinceblock (RHavar)
